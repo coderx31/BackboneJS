@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="jquery-3.6.1.js"></script>
+        <script src="underscore-umd.js"></script>
+        <script src="backbone.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <p id="content"></p>
+
+        <script>
+            let FirstView = Backbone.View.extend({
+                tagName: 'p',
+                initialize: function() {
+                    this.$el.html("Hello Shenal");
+                    return
+                }
+            });
+
+            let firstview = new FirstView();
+            $('#content').html(firstview.$el);
+        </script>
+        
+    </body>
+</html>
