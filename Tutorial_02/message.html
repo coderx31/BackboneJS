@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="jquery-3.6.1.js"></script>
+        <script src="underscore-umd.js"></script>
+        <script src="backbone.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="content"></div>
+        <script>
+            $(document).ready(function() {
+                let FirstView = Backbone.View.extend({
+                    tagName: 'span', // -> change the default tag
+                    className: 'content', // -> add class name
+                    id: 'content', // -> add id
+                    initialize: function() {
+                        this.render();
+                    },
+                    render: function() {
+                        console.log('Hello Shenal');
+                        console.log(this.$el); // -> div tag [jquery object]
+                        console.log(this.el); // -> div tag
+                        this.$el.html('here is the customer message for view')
+                    }
+                });
+
+                let firstview = new FirstView({
+                    el: '#content'
+                });
+                //firstview.render(); // -> because of initialize method, we don't need this line
+            });
+        </script>
+        
+    </body>
+</html>
