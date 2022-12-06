@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery-3.6.1.js"></script>
+    <script src="underscore-umd.js"></script>
+    <script src="backbone.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="content"></div>
+
+    <!-- second way to create template -->
+    <script type="text/template" id="tmpl-fview"> 
+        Hello this is the second way to create template
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            let FirstView = Backbone.View.extend({
+                el: '#content',
+                //template: _.template($('#tmpl-fview').html()), 
+                initialize: function() {
+                    this.render();
+                },
+                render: function() {
+                    // another way to use template
+                    let template = _.template($('#tmpl-fview').html());
+                    this.$el.html(template());
+                    return this;
+                   // console.log("we're ready to create our first template");
+                }
+            });
+
+            let firstview = new FirstView();
+        });
+    </script>
+    
+</body>
+</html>
