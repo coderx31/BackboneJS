@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery-3.6.1.js"></script>
+    <script src="underscore-umd.js"></script>
+    <script src="backbone.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="content"></div>
+
+    <script type="text/html" id="eventTemplate">
+        <button id="btnClick">Click Me</button>
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            let FirstView = Backbone.View.extend({
+                el: '#content',
+                template: _.template($('#eventTemplate').html()),
+                events: {
+                    "click #btnClick": "OnClick" // -> <evnet_name selector>:<callback function>
+                },
+                OnClick: function() {
+                    //alert('you clicked on the button')
+                    const a = 10;
+                    const b = 20;
+                    console.log(`${a} + ${b} = ${a+b}`);
+                    alert(`${a} + ${b} = ${a+b}`)
+                },
+                initialize: function() {
+                    this.render();
+                },
+                render: function() {
+                    this.$el.html(this.template());
+                    console.log("this video is about delegate events");
+                }
+            });
+
+            let eventview = new FirstView();
+        });
+    </script>
+    
+</body>
+</html>
