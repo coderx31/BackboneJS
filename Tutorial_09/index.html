@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery-3.6.1.js"></script>
+    <script src="underscore-umd.js"></script>
+    <script src="backbone.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let Model = Backbone.Model.extend({
+            initialize: function() {
+                console.log("model created");
+            }
+        });
+
+        let fmodel = new Model();
+        fmodel.set({
+            name: "Shenal Fernando",
+            city: "Negombo"
+        })
+
+
+        let ModelView = Backbone.View.extend({
+            //model: fmodel, -> another way to pass the model into view
+            initialize: function() {
+                this.render();
+            }, render: function() {
+                console.log('Model view created');
+                console.log(this.model.toJSON());
+                console.log(this.model.get("name"));
+            }
+        });
+
+        let mview = new ModelView({
+            model: fmodel
+        });
+    </script>
+    
+</body>
+</html>
