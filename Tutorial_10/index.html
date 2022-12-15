@@ -15,13 +15,21 @@
 
     <script type="text/template" id="my-template">
         Name: <%= name %> and author <%= author %>
+
+        <!-- conditional rendering -->
+       <% if(id > 5) {  %>
+        id greater than 5
+       <% }else { %>
+        id is less than 5
+        <% } %>
     </script>
 
     <script>
         let Model = Backbone.Model.extend();
         let modelObj = new Model({
             name: "Online web tutor",
-            author: "Sanjay Kumar"
+            author: "Sanjay Kumar",
+            id: 2
         })
         let ModelView = Backbone.View.extend({
             template: _.template($("#my-template").html()), // external template
