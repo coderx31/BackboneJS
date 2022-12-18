@@ -1,0 +1,7 @@
+Model events
+
+escape - will covert html elements into html entities
+has - check if the key is exists or not
+unset - will delete the key nad value
+clear - will delete all the key value pairs in model
+defaults - setting default values to model

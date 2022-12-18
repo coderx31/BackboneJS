@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery-3.6.1.js"></script>
+    <script src="underscore-umd.js"></script>
+    <script src="backbone.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+
+    </div>
+
+    <script>
+        let MyModel = Backbone.Model.extend({
+            defaults: {
+                name: 'Default Name',
+                author: 'Default Author'
+            },
+            initialize: function() {
+                console.log('Model Constructor');
+            }
+        });
+
+        let mymodel = new MyModel({
+            name: "Shenal"
+        });
+        // mymodel.set({
+        //     name: "<p>OWT</p>",
+        //     author: "Sanjay Kumar"
+        // });
+
+        let MyView = Backbone.View.extend({
+            model: mymodel,
+            initialize: function() {
+                this.render();
+            },
+            render: function() {
+                
+                //console.log(this.model.escape("name")); // escape will covert html tags into html entities
+                //console.log(this.model.get('name'));
+               // console.log(this.model.has("name_"));
+               //this.model.unset('name'); // this will delete the name key and value
+              // this.model.clear(); // this will clear the model
+                console.log(this.model.toJSON());
+            }
+        })
+
+        let myViewObj = new MyView();
+    </script>
+    
+</body>
+</html>
