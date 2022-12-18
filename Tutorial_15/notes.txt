@@ -1,0 +1,9 @@
+clone - make a duplicate copy of the model
+
+hasChanged - to check if the values are changed or not
+
+changedAttributes - to detect which values got updated
+
+previous - used to track the previous value
+
+previousAttributes - to keep trakc of all prevous attributes 
